@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "aspen",
+  "theme": "almond",
   "name": "PolyFundr",
   "description": "Help center and guides for PolyFundr. the first prop trading platform for Polymarket.",
   "colors": {
