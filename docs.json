@@ -82,7 +82,7 @@
       },
       {
         "group": "FAQ",
-        "icon": "circle-help",
+        "icon": "circle-question-mark",
         "expanded": true,
         "root": "faq/index",
         "pages": [
@@ -94,17 +94,49 @@
     ]
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Email us",
-        "href": "mailto:support@polyfundr.com"
-      }
-    ],
     "primary": {
       "type": "button",
       "label": "Get Funded",
       "href": "https://polyfundr.com/accounts"
     }
+  },
+  "footer": {
+    "links": [
+      {
+        "header": "Support",
+        "items": [
+          {
+            "label": "Email us",
+            "href": "mailto:support@polyfundr.com"
+          },
+          {
+            "label": "Discord",
+            "href": "https://discord.gg/Yby2QesUDx"
+          }
+        ]
+      },
+      {
+        "header": "Socials",
+        "items": [
+          {
+            "label": "TikTok",
+            "href": "https://www.tiktok.com/@polyfundr"
+          },
+          {
+            "label": "X (Twitter)",
+            "href": "https://x.com/polyfundr"
+          },
+          {
+            "label": "Instagram",
+            "href": "https://instagram.com/polyfundr"
+          },
+          {
+            "label": "YouTube",
+            "href": "https://www.youtube.com/@PolyFundr"
+          }
+        ]
+      }
+    ]
   },
   "appearance": {
     "default": "system"

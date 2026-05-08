@@ -8,10 +8,10 @@ mode: custom
   <div className="flex flex-col items-center gap-12">
     <div className="flex w-full max-w-lg flex-col gap-1">
       <h1 className="text-center text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-50">
-        How can we help?
+        PolyFundr Help Center
       </h1>
       <p className="text-center text-balance text-base text-gray-600 dark:text-gray-400 mt-2">
-        Search the PolyFundr Help Center for challenge rules, trading guides, payout instructions, and account setup—all in one place.
+        Search the PolyFundr help center for challenge rules, trading guides, payouts, and account setup.
       </p>
     </div>
 
@@ -53,23 +53,6 @@ mode: custom
           />
           <span className="whitespace-nowrap text-gray-500 dark:text-white/50">Ask AI</span>
         </button>
-      </div>
-
-      <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-gray-500 dark:text-gray-400">
-        <span>Popular searches</span>
-        <div className="flex flex-wrap justify-center gap-1">
-          {['challenge rules', 'payouts', 'demo account'].map((term) => (
-            <button
-              key={term}
-              type="button"
-              data-popular-search
-              data-term={term}
-              className="rounded-md bg-gray-100 px-1.5 py-1 font-mono text-xs font-bold uppercase tracking-tight text-gray-600 transition hover:bg-gray-200 dark:bg-white/10 dark:text-gray-300 dark:hover:bg-white/15"
-            >
-              {term.toUpperCase()}
-            </button>
-          ))}
-        </div>
       </div>
     </div>
   </div>
