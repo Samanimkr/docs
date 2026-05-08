@@ -26,9 +26,9 @@
     "directory": "card",
     "products": [
       {
-        "product": "Help Center",
+        "product": "PolyFundr Help Center",
         "description": "Challenges, trading guides, funded accounts, payouts, and FAQ.",
-        "icon": "life-buoy",
+        "icon": "hand-helping",
         "groups": [
           {
             "group": "Get Started",
@@ -96,7 +96,11 @@
               "faq/rules"
             ]
           }
-        ]
+        ],
+        "color": {
+          "light": "#0182ff",
+          "dark": "#0182ff"
+        }
       }
     ]
   },
