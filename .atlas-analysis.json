@@ -1,0 +1,92 @@
+{
+  "projectType": "saas",
+  "projectName": "PolyFundr",
+  "projectDescription": "A prop-trading platform for prediction markets that funds traders up to $200k to trade live Polymarket events after passing a rules-based challenge.",
+  "theme": "luma",
+  "primaryColor": "#04b47c",
+  "lightColor": "#79dcbc",
+  "darkColor": "#0484fc",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "how-it-works",
+              "demo-account"
+            ]
+          },
+          {
+            "group": "Challenges",
+            "pages": [
+              "challenges/overview",
+              "challenges/rules",
+              "challenges/buying-a-challenge"
+            ]
+          },
+          {
+            "group": "Trading",
+            "pages": [
+              "trading/markets",
+              "trading/placing-trades",
+              "trading/positions-and-pnl"
+            ]
+          },
+          {
+            "group": "Funded Accounts",
+            "pages": [
+              "funded/overview",
+              "funded/payouts",
+              "funded/risk-rules"
+            ]
+          },
+          {
+            "group": "Account & Wallet",
+            "pages": [
+              "account/signup-and-login",
+              "account/wallet",
+              "account/notifications"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+              "faq/general",
+              "faq/payouts",
+              "faq/rules"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "One-step challenge evaluation — no multi-phase hoops",
+    "Trade live Polymarket prediction market prices (politics, crypto, sports, tech, AI)",
+    "Challenge accounts from $10k to $200k with a one-time fee",
+    "Free $1,000 demo account for every new user",
+    "90% profit split for funded traders",
+    "USDC payouts to wallet or bank within 24 hours",
+    "No KYC required to start a challenge",
+    "Clear risk rules: profit target, daily drawdown, total drawdown, max risk per trade, inactivity limit",
+    "Automatic funded account activation upon passing — no delays or verification phase",
+    "Affiliate referral program"
+  ],
+  "publicApiSurface": [
+    "GET /events/dashboard — grouped event feed by Polymarket category",
+    "GET /events/slug/:slug — event snapshot with latest prices",
+    "GET /events/slug/:slug/history — price history for charting",
+    "POST /trades — place a simulated YES/NO trade",
+    "GET /positions?eventId= — positions for a specific event",
+    "GET /positions/portfolio — all positions across events with PnL",
+    "POST /challenges/checkout/intents — create a challenge purchase intent",
+    "POST /challenges/checkout/intents/:id/card/submit — submit payment proof",
+    "GET /wallet/balance — current wallet balance",
+    "GET /payouts — payout history",
+    "POST /payouts — request a payout with destination address",
+    "GET /notifications — in-app notifications"
+  ]
+}

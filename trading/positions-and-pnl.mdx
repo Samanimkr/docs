@@ -1,0 +1,75 @@
+---
+title: "Understanding Your Positions and Live PnL"
+sidebarTitle: "Positions & PnL"
+description: "How PolyFundr tracks your open and closed positions, calculates live PnL from fresh price snapshots, and aggregates your portfolio across all events."
+---
+
+Every trade you place creates a position. PolyFundr stores each fill separately — there is no netting — so you may hold multiple positions on the same outcome at different entry prices. Each position carries a live PnL figure that updates continuously as fresh Polymarket price snapshots arrive.
+
+## Where to view positions
+
+You can see your positions in two places:
+
+<Tabs>
+  <Tab title="Event page">
+    The event page at `/event/[slug]` shows a **Positions** panel on the right rail (desktop) or below the outcomes table (mobile). This panel displays only the positions for that specific event, with their current price and PnL.
+
+    On desktop, a **Positions** tab in the bottom panel shows all positions across your entire portfolio, with the current event's positions highlighted.
+  </Tab>
+  <Tab title="Portfolio page">
+    The portfolio page at `/portfolio` shows every position across all events. It is the central place to review your full trading history, monitor open risk, and close positions you no longer want to hold.
+  </Tab>
+</Tabs>
+
+## How PnL is calculated
+
+For each open position, PnL updates every time the platform fetches a fresh price snapshot:
+
+| Field | Calculation |
+|---|---|
+| **Current price** | Latest Polymarket price for the token you hold (YES or NO), in cents |
+| **Current value** | Shares × current price (as a decimal) |
+| **PnL** | Current value − amount invested (USDC) |
+
+For example: you bought YES at 40¢ with $20, giving you 50 shares. If the YES price is now 60¢, your current value is $30 and your PnL is +$10.
+
+<Note>PnL is unrealized (open) while the position is open. It becomes realized (closed) once you sell the position or the market resolves and auto-closes your position.</Note>
+
+## Portfolio summary
+
+The portfolio page at `/portfolio` shows four summary metrics for your current active account:
+
+| Metric | What it shows |
+|---|---|
+| **Realized PnL** | Total PnL from all closed positions on your current account |
+| **Open PnL** | Combined unrealized PnL across all open positions |
+| **Open risk** | Total USDC currently at risk across open positions |
+| **Open positions** | Count of positions that have not yet been closed |
+
+<Info>The portfolio splits positions into **Current account trades** and **Previous trades**. Current account trades are the positions tied to your active challenge or funded account. Previous trades are positions from accounts you've already closed or completed.</Info>
+
+## Position table columns
+
+The position table on the portfolio page shows:
+
+| Column | Description |
+|---|---|
+| **Date** | Date the trade was placed |
+| **Event** | Event name, linking back to the event page |
+| **Outcome** | The market outcome you traded |
+| **Side** | YES or NO |
+| **PnL** | Current PnL (green for positive, red for negative) |
+| **Amount** | USDC invested |
+| **Entry** | Price at which the trade was filled, in cents |
+| **Price** | Current market price (or close price for closed positions), in cents |
+| **Action** | **Sell** button for open positions; **Closed** badge for resolved ones |
+
+## Positions are per trading account
+
+Each trading account — whether a challenge or a funded account — tracks its own positions independently. When a challenge passes and a funded account is created, any positions opened during the challenge are kept separate from positions you open in the funded phase. Challenge and funded trades never mix.
+
+<Warning>Open trade PnL is excluded from payout eligibility on funded accounts. Only realized (closed) profit counts toward your available payout amount.</Warning>
+
+## Auto-close on event resolution
+
+When a Polymarket event resolves, open positions on that event are closed automatically. The close price is the resolution price of the outcome. Resolved positions appear in the position table with a **Closed** badge and their final PnL locked in.

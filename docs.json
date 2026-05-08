@@ -1,0 +1,116 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "PolyFundr",
+  "description": "Documentation and guides for PolyFundr — the prop trading platform for Polymarket prediction markets.",
+  "colors": {
+    "primary": "#04b47c",
+    "light": "#79dcbc",
+    "dark": "#0484fc"
+  },
+  "favicon": "https://media.brand.dev/618add50-107b-43c3-91fc-59fe7c6a2bd0.png",
+  "logo": {
+    "light": "https://media.brand.dev/9c4f15b4-0759-425f-8938-cca552b3aacb.svg",
+    "dark": "https://media.brand.dev/cdc52816-c13a-4588-af50-6d959abd636a.svg"
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
+  "contextual": {
+    "options": ["copy", "view", "assistant"]
+  },
+  "navigation": {
+    "directory": "card",
+    "products": [
+      {
+        "product": "Help Center",
+        "description": "Challenges, trading guides, funded accounts, payouts, and FAQ.",
+        "icon": "life-buoy",
+        "groups": [
+          {
+            "group": "Get Started",
+            "icon": "rocket",
+            "expanded": true,
+            "root": "getting-started/index",
+            "pages": [
+              "getting-started/introduction",
+              "getting-started/how-it-works",
+              "getting-started/demo-account"
+            ]
+          },
+          {
+            "group": "Challenges",
+            "icon": "trophy",
+            "expanded": true,
+            "root": "challenges/index",
+            "pages": [
+              "challenges/overview",
+              "challenges/rules",
+              "challenges/buying-a-challenge"
+            ]
+          },
+          {
+            "group": "Trading",
+            "icon": "trending-up",
+            "expanded": true,
+            "root": "trading/index",
+            "pages": [
+              "trading/markets",
+              "trading/placing-trades",
+              "trading/positions-and-pnl"
+            ]
+          },
+          {
+            "group": "Funded Accounts",
+            "icon": "wallet",
+            "expanded": true,
+            "root": "funded/index",
+            "pages": [
+              "funded/overview",
+              "funded/payouts",
+              "funded/risk-rules"
+            ]
+          },
+          {
+            "group": "Account & Wallet",
+            "icon": "user",
+            "expanded": true,
+            "root": "account/index",
+            "pages": [
+              "account/signup-and-login",
+              "account/wallet",
+              "account/notifications"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "icon": "circle-help",
+            "expanded": true,
+            "root": "faq/index",
+            "pages": [
+              "faq/general",
+              "faq/payouts",
+              "faq/rules"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@polyfundr.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Get Funded",
+      "href": "https://polyfundr.com/accounts"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+---
+title: "Funded Account Risk Rules: Drawdowns, Targets, Limits"
+sidebarTitle: "Risk rules"
+description: "The same risk rules from your challenge carry over to your funded account — profit target, drawdowns, max risk per trade, and inactivity limits."
+---
+
+The risk rules that applied during your challenge carry over unchanged to your funded account. There are no new rules to learn and no hidden restrictions — the same profit target, drawdown limits, max risk per trade, and inactivity limit govern your funded account from the moment it opens.
+
+## Rules at a glance
+
+| Rule | Value |
+|---|---|
+| Profit target | +30% of starting balance (per payout cycle) |
+| Max daily drawdown | 10% of the day's starting equity |
+| Max total drawdown | 20% trailing from peak equity |
+| Max risk per trade | 5% of starting balance |
+| Min trading days | 7 (between payouts) |
+| Max inactivity | 14 days |
+
+## How each rule works
+
+### Profit target
+
+Your profit target is 30% of your funded account's starting balance. This resets at the start of each payout cycle. The target is based on **realized profit only** — open positions do not count until they are closed.
+
+| Account size | Profit target |
+|---|---|
+| $10,000 | $3,000 |
+| $25,000 | $7,500 |
+| $50,000 | $15,000 |
+| $100,000 | $30,000 |
+| $200,000 | $60,000 |
+
+### Max daily drawdown
+
+At the start of each UTC day, your equity is snapshotted. If your equity drops more than 10% below that level at any point during the day, your funded account is breached.
+
+<Warning>
+  The daily drawdown resets each UTC midnight — not at a fixed clock time local to you. Plan your trading sessions accordingly.
+</Warning>
+
+### Max total drawdown
+
+PolyFundr tracks your all-time peak equity. If your equity ever falls more than 20% below that peak, your funded account is breached. The peak only moves upward — once you reach new highs, the floor rises with you.
+
+<Info>
+  Drawdown calculations are adjusted for payouts you have already received. Withdrawing profits does not lower your drawdown floor or move you closer to a breach.
+</Info>
+
+### Max risk per trade
+
+Before every trade, the platform checks the worst-case loss across all your open positions in the same market plus the new trade. If that combined exposure exceeds 5% of your starting balance, the trade is blocked.
+
+This rule is enforced on the starting balance of your funded account — not on your current equity — so the absolute dollar limit stays constant throughout the payout cycle.
+
+| Account size | Max risk per trade |
+|---|---|
+| $10,000 | $500 |
+| $25,000 | $1,250 |
+| $50,000 | $2,500 |
+| $100,000 | $5,000 |
+| $200,000 | $10,000 |
+
+### Minimum trading days
+
+You must trade on at least 7 distinct calendar days between payouts. A qualifying trading day requires at least one trade with $1 or more in notional value. The 7-day clock resets after each payout is approved.
+
+<Tip>
+  Spreading your trades across different days — rather than concentrating them — is a natural way to satisfy this requirement without changing how you trade.
+</Tip>
+
+### Max inactivity
+
+If more than 14 consecutive days pass without a qualifying trade, your funded account is breached. The inactivity clock starts when your funded account is activated and resets each time you place a qualifying trade.
+
+## What happens if you breach a rule
+
+If a rule violation is detected, your funded account is closed. You would need to purchase and pass a new challenge to receive a new funded account.
+
+<Note>
+  The max risk per trade rule is enforced in real time — trades that would breach it are blocked before they execute. Daily and total drawdown violations are evaluated continuously and will close the account immediately on breach.
+</Note>

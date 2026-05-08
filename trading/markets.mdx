@@ -1,0 +1,61 @@
+---
+title: "Browsing Polymarket Events and Categories"
+sidebarTitle: "Markets"
+description: "Find tradable Polymarket events on PolyFundr's dashboard. Markets are grouped by category so you can quickly navigate to the topics you follow."
+---
+
+Every market on PolyFundr is sourced directly from Polymarket. When you open the dashboard at `/dashboard`, you see a live event feed grouped by category. Prices reflect real Polymarket data and refresh automatically, so what you see is what you'd trade against.
+
+## Market categories
+
+The dashboard groups events into the following categories:
+
+| Category | Examples |
+|---|---|
+| **Crypto** | Token prices, protocol milestones, chain metrics |
+| **Sports** | Game outcomes, player props, season results |
+| **Politics** | Elections, policy decisions, appointments |
+| **Finance** | Macro indicators, earnings, rate decisions |
+| **Tech** | Product launches, regulatory rulings, acquisitions |
+| **AI** | Model releases, benchmark results, company news |
+| **Culture** | Entertainment, awards, social trends |
+| **Ending Soon** | Markets that are closing in the near term |
+
+<Tip>Check **Ending Soon** regularly — markets approaching their close date often see sharper price moves as resolution draws near.</Tip>
+
+## How to browse markets
+
+<Steps>
+  <Step title="Open the dashboard">
+    Navigate to `/dashboard`. The event feed loads automatically; no action is required to refresh prices.
+  </Step>
+  <Step title="Scan by category">
+    Each category section shows a preview of its top events. Scroll down to browse all categories, or select a category link to see its full event list.
+  </Step>
+  <Step title="Open an event">
+    Click any event card to open the event page at `/event/[slug]`. The event page shows the current price history chart, all tradable outcomes, and the trade panel.
+  </Step>
+</Steps>
+
+## What you see on an event page
+
+The event page at `/event/[slug]` is where all trading happens. It contains:
+
+- **Price history chart** — a time-series chart of YES token prices across available time ranges (1H, 6H, 1D, 1W, 1M, Max).
+- **Outcomes table** — all open outcomes with current YES and NO prices, expressed in cents (0–100¢, where 100¢ = 100% probability).
+- **Trade panel** — the form you use to submit a YES or NO trade.
+- **Positions panel** — your open and closed positions for this specific event.
+
+## Understanding prices
+
+Prices on PolyFundr are expressed in cents and represent implied probability:
+
+- **50¢** means the market estimates a 50% chance of that outcome resolving YES.
+- **90¢** means the market estimates a 90% chance.
+- A YES token at 30¢ and the corresponding NO token at 70¢ always sum to approximately 100¢.
+
+<Note>Prices refresh automatically but may lag a market move by a few seconds. If a price looks stale, reload the event page to fetch the latest snapshot.</Note>
+
+## Resolved and unavailable outcomes
+
+Outcomes that have already resolved are shown in a collapsed **Resolved outcomes** section at the bottom of the outcomes table. They are not available to trade. If an outcome is under review, it displays an "In review" badge and trading is disabled until review completes.

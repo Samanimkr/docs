@@ -1,0 +1,87 @@
+---
+title: "Challenge Rules Explained in Full Detail"
+sidebarTitle: "Rules"
+description: "Every rule that governs your challenge account: profit target, minimum trading days, daily drawdown, total drawdown, max risk per trade, and inactivity."
+---
+
+Your challenge account is governed by two sets of rules: **pass conditions** you must meet to complete the challenge, and **fail conditions** that end it immediately if breached. You need to satisfy every pass condition simultaneously, and you must never trigger any fail condition.
+
+## Pass conditions
+
+You pass the challenge the moment both of the following are true at the same time, with no rule violations on record.
+
+| Condition | Requirement |
+| :-- | :-- |
+| **Profit target** | Your account equity reaches **+30%** above your starting balance |
+| **Minimum trading days** | You have placed at least one qualifying trade on **7 distinct calendar days** |
+
+A qualifying trade is any trade with a notional value of **$1 or more**. Trading days are counted in UTC — two trades placed on the same UTC calendar day count as one trading day.
+
+<Note>
+Both conditions must be satisfied at the same time. Reaching the profit target on day 5 does not pass the challenge — you still need to reach 7 trading days with the equity at or above the target.
+</Note>
+
+## Fail conditions
+
+Any one of the following ends your challenge immediately and permanently.
+
+| Condition | Limit | Measured from |
+| :-- | :-- | :-- |
+| **Max daily drawdown** | **10%** drop from the day's starting equity | UTC-day equity snapshot |
+| **Max total drawdown** | **20%** drop from your all-time peak equity | Trailing high-water mark |
+| **Max risk per trade** | **5%** of your starting balance per trade | Before every new trade |
+| **Max inactivity** | **14 days** without a qualifying trade | Challenge activation or last trade |
+
+### Max daily drawdown
+
+At the start of each UTC day, the platform snapshots your account equity. If your equity falls more than 10% below that snapshot at any point during the day, the account fails.
+
+**Example:** You start a UTC day with $52,000 in equity. Your daily floor is $52,000 × 0.90 = $46,800. If your equity drops to $46,799 at any point that day, the challenge ends.
+
+<Warning>
+The daily drawdown resets each UTC day using a fresh equity snapshot. A large gain on one day raises the floor for the next day.
+</Warning>
+
+### Max total drawdown (trailing)
+
+The platform tracks your highest-ever equity. If your equity falls more than 20% below that all-time peak, the account fails. The high-water mark only moves up — once you reach a new equity peak, the floor rises with it and never comes back down.
+
+**Example:** Your starting balance is $50,000 and your equity peaks at $58,000. Your total drawdown floor is $58,000 × 0.80 = $46,400. If your equity falls to $46,399, the challenge ends.
+
+<Info>
+Drawdown calculations are adjusted for any payouts already made. Withdrawing profits on a funded account does not move you closer to a breach.
+</Info>
+
+### Max risk per trade
+
+Before every trade, the platform calculates your worst-case loss across all open positions on the same market plus the new trade you are about to place. If that combined worst-case loss exceeds 5% of your starting balance, the trade is blocked.
+
+**Example:** On a $50,000 challenge, 5% is $2,500. If you already have $1,800 at risk on a market and try to add a trade that risks another $900 on the same market, the total would be $2,700 — the trade is blocked.
+
+<Tip>
+The 5% limit is calculated from your **starting balance**, not your current equity. It does not change as your account grows or shrinks.
+</Tip>
+
+### Max inactivity
+
+If 14 or more days pass without a qualifying trade ($1+ notional), the account fails. The clock starts at challenge activation and resets with every qualifying trade you place.
+
+## Rules that carry over to funded accounts
+
+The same rules apply to your funded account after you pass. The profit target becomes a per-payout-cycle target, and the minimum 7 trading days resets between payouts.
+
+| Rule | Challenge | Funded account |
+| :-- | :-- | :-- |
+| Profit target | 30% of starting balance | 30% per payout cycle |
+| Daily drawdown | 10% of day's starting equity | 10% of day's starting equity |
+| Total drawdown | 20% trailing from peak | 20% trailing from peak |
+| Max risk per trade | 5% of starting balance | 5% of starting balance |
+| Min trading days | 7 distinct days | 7 distinct days (between payouts) |
+| Max inactivity | 14 days | 14 days |
+
+## What is allowed
+
+- Trade any market available on PolyFundr using live Polymarket prices.
+- Hold positions for as long as you like, provided you stay within the rules.
+- Trade on news events, weekends, or any time of day.
+- No restrictions on holding periods or market categories.
