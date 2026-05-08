@@ -10,8 +10,8 @@
   },
   "favicon": "https://media.brand.dev/618add50-107b-43c3-91fc-59fe7c6a2bd0.png",
   "logo": {
-    "light": "/images/Logo-256x256.png",
-    "dark": "/images/Logo-TransparentBGRounded.png"
+    "light": "/images/Screenshot2026-05-08at23.26.59.png",
+    "dark": "/images/Screenshot2026-05-08at23.26.44.png"
   },
   "icons": {
     "library": "lucide"
@@ -118,7 +118,7 @@
     }
   },
   "appearance": {
-    "default": "light"
+    "default": "system"
   },
   "fonts": {
     "family": "Montserrat",
