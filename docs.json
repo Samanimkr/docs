@@ -24,24 +24,71 @@
   },
   "navigation": {
     "directory": "card",
-    "anchors": [
+    "groups": [
       {
-        "anchor": "Untitled Anchor",
-        "versions": [
-          {
-            "version": "Untitled Version",
-            "products": [
-              {
-                "product": "PolyFundr Help Center",
-                "icon": "hand-helping",
-                "color": {
-                  "light": "#0182ff",
-                  "dark": "#0182ff"
-                },
-                "description": "Challenges, trading guides, funded accounts and more."
-              }
-            ]
-          }
+        "group": "Get Started",
+        "icon": "rocket",
+        "expanded": true,
+        "root": "getting-started/index",
+        "pages": [
+          "getting-started/introduction",
+          "getting-started/how-it-works",
+          "getting-started/demo-account"
+        ]
+      },
+      {
+        "group": "Challenges",
+        "icon": "trophy",
+        "expanded": true,
+        "root": "challenges/index",
+        "pages": [
+          "challenges/overview",
+          "challenges/rules",
+          "challenges/buying-a-challenge"
+        ]
+      },
+      {
+        "group": "Trading",
+        "icon": "trending-up",
+        "expanded": true,
+        "root": "trading/index",
+        "pages": [
+          "trading/markets",
+          "trading/placing-trades",
+          "trading/positions-and-pnl"
+        ]
+      },
+      {
+        "group": "Funded Accounts",
+        "icon": "wallet",
+        "expanded": true,
+        "root": "funded/index",
+        "pages": [
+          "funded/overview",
+          "funded/payouts",
+          "funded/risk-rules"
+        ]
+      },
+      {
+        "group": "Account & Wallet",
+        "icon": "user",
+        "expanded": true,
+        "root": "account/index",
+        "pages": [
+          "account/signup-and-login",
+          "account/wallet",
+          "account/notifications"
+        ]
+      },
+      {
+        "group": "FAQ",
+        "icon": "circle-help",
+        "expanded": true,
+        "root": "faq/index",
+        "pages": [
+          "faq/general",
+          "faq/payouts",
+          "faq/rules"
         ]
       }
     ]
@@ -49,7 +96,7 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
+        "label": "Email us",
         "href": "mailto:support@polyfundr.com"
       }
     ],
