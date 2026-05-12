@@ -4,107 +4,87 @@ sidebarTitle: "How it works"
 description: "A step-by-step breakdown of the PolyFundr flow: buy a challenge, pass it, get a funded account, and withdraw 90% of your profits in USDC."
 ---
 
-PolyFundr runs on a simple three-stage flow: you buy a challenge, prove your trading ability on live Polymarket prices, and receive a funded account the moment you pass. There is no second evaluation phase, no waiting period, and no hidden steps between passing and getting paid.
+Use this page as the main overview of PolyFundr. It shows how the challenge works, what changes when you get funded, and how payouts work.
 
-## Step 1 — Challenge
+## Flow diagram
 
-The challenge is a simulated trading account. You pay a one-time fee to open one, then trade live Polymarket markets within a defined set of rules. The goal is to hit a **30% profit target** on at least **7 distinct trading days**, without violating any risk limit.
+```mermaid
+%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 65, 'padding': 16}} }%%
+flowchart TB
+    A["Buy challenge"] --> B["Pass challenge<br/>+30% equity<br/>and 7 trading days"]
+    B --> C["Funded account opens<br/>same account size"]
+    C --> D["Reach payout threshold<br/>30% realized profit"]
+    D --> E["Request payout<br/>USDC on Polygon"]
+```
 
-### What you need to hit
+## The full flow
+
+<Steps>
+  <Step title="1. Buy a challenge">
+    Pick a challenge size from \$10,000 to \$200,000 and pay the one-time fee.
+  </Step>
+  <Step title="2. Pass the challenge">
+    Pass when your **equity** reaches +30% and you have traded on 7 separate days, without breaching any risk rule.
+  </Step>
+  <Step title="3. Get funded">
+    A funded account opens automatically at the same size. It starts fresh and is separate from your challenge account.
+  </Step>
+  <Step title="4. Request a payout">
+    Once your **realized profit** reaches the payout threshold, you can request USDC on Polygon to the wallet address you enter for that request.
+  </Step>
+</Steps>
+
+## Challenge pass vs funded payout
+
+This is the most important distinction on the site:
+
+| | Challenge | Funded account |
+| :--- | :--- | :--- |
+| What moves you forward | Pass the challenge | Request a payout |
+| What counts toward the target | **Equity** | **Realized profit** |
+| Target size | 30% of starting balance | 30% of starting balance |
+| Open positions | Count in equity | Do not count until closed |
+| Minimum trading days | 7 to pass | Not part of the current payout request checks |
+
+<Note>
+  If you remember one thing, remember this: challenge passing is equity-based, and funded payout eligibility is realized-profit-based.
+</Note>
+
+## Challenge rules at a glance
 
 | Rule | Requirement |
 | :--- | :--- |
-| Profit target | +30% of starting balance |
-| Minimum trading days | 7 days with at least one qualifying trade (\$1+ notional) |
-
-You pass the instant your equity reaches the profit target **and** you have met the minimum trading days requirement, with no active rule violations.
-
-### What you must not breach
-
-| Rule | Limit |
-| :--- | :--- |
+| Profit target | +30% equity from starting balance |
+| Minimum trading days | 7 distinct days with at least one \$1+ trade |
 | Max daily drawdown | 10% of the day's starting equity |
-| Max total drawdown | 20% trailing from your highest equity ever reached |
-| Max risk per trade | 5% of your starting balance |
-| Max inactivity | 14 days without a qualifying trade |
+| Max total drawdown | 20% below your peak equity |
+| Max risk per trade | 5% of starting balance |
+| Max inactivity | 14 days |
 
-<Warning>
-  Breaking any one of these limits ends the challenge immediately. Each limit is evaluated continuously — not just at the end of the day.
-</Warning>
+The full definitions and examples live on [Challenge rules](/challenges/rules).
 
-### How the limits are measured
+## Funded account rules at a glance
 
-**Daily drawdown** is calculated from a snapshot taken at the start of each UTC day. If your equity drops more than 10% below that snapshot at any point during the day, the account fails.
+- The funded account starts at the same size as the challenge you passed.
+- Daily drawdown, total drawdown, max risk per trade, and inactivity rules still apply.
+- Payouts use a 90% split.
+- Payouts are sent in USDC on Polygon.
+- You must enter the destination wallet address every time.
+- The current maximum request is \$1,000 gross.
+- While a payout is pending, that amount is reserved against further payout availability.
 
-**Total drawdown** tracks your all-time peak equity. If your equity ever falls more than 20% below that peak, the account fails. The floor rises with you — once you reach new highs, the trailing floor moves up.
+The full payout rules live on [Funded payouts](/funded/payouts).
 
-**Max risk per trade** is checked before every trade is accepted. If the worst-case loss across your open positions on the same market plus the new trade would exceed 5% of your starting balance, the trade is blocked.
+## What to read next
 
-**Inactivity** is measured from activation. The clock resets with every qualifying trade. Going 14 consecutive days without a trade fails the account.
-
-### Challenge tiers
-
-| Account size | One-time fee |
-| :--- | :--- |
-| \$10,000 | \$125 |
-| \$25,000 | \$300 |
-| \$50,000 | \$500 |
-| \$100,000 | \$900 |
-| \$200,000 | \$1,500 |
-
----
-
-## Step 2 — Funded account
-
-Pass the challenge and a new funded account at the same starting size opens automatically. There is no second phase, no identity check, and no manual review step.
-
-<Columns cols={2}>
-  <Card title="Same account size" icon="scale">
-    Your funded account starts at the same balance as the challenge you passed — \$10k, \$25k, \$50k, \$100k, or \$200k.
+<CardGroup cols={3}>
+  <Card title="Challenge overview" icon="trophy" href="/challenges/overview">
+    Compare account sizes, fees, and what happens after you pass.
   </Card>
-  <Card title="Same risk rules" icon="shield-check">
-    The same daily drawdown, total drawdown, max risk per trade, and inactivity rules apply to your funded account.
+  <Card title="Challenge rules" icon="shield-check" href="/challenges/rules">
+    Read the exact pass and fail conditions.
   </Card>
-</Columns>
-
-Your challenge trades and funded trades are completely separate. The funded account starts with a clean slate.
-
----
-
-## Step 3 — Payout
-
-Once your funded account reaches the payout threshold, you can request a payout directly from your dashboard.
-
-<Note>
-  Challenge passing is based on **equity** reaching the target. Funded payout eligibility is based on **realized profit** after prior paid payouts. Open positions do not count until they are closed.
-</Note>
-
-### Payout details
-
-- **Profit split:** 90% to you, 10% to PolyFundr.
-- **Payout method:** USDC on Polygon to the destination wallet address you enter on that request.
-- **Current request cap:** Up to \$1,000 gross per payout request.
-- **Pending payouts:** Any amount you have requested but not yet received is reserved against your payout availability until the request is approved or rejected.
-
-### Example
-
-On a \$50,000 funded account, the payout threshold is \$15,000 in realized profit. Once you are eligible, the current maximum request is \$1,000 gross. At a 90% split, that request pays \$900 to you.
-
----
-
-## Quick-reference comparison
-
-| | Challenge | Funded |
-| :--- | :--- | :--- |
-| Starting balance | \$10k – \$200k | Same as challenge |
-| Profit target | 30% equity target | 30% realized-profit threshold |
-| Daily drawdown | 10% | 10% |
-| Total drawdown | 20% | 20% |
-| Max risk per trade | 5% | 5% |
-| Min trading days | 7 to pass | Not part of the payout request checks shown in the app |
-| Max inactivity | 14 days | 14 days |
-| Profit split | n/a | 90% to trader |
-
-<Tip>
-  Want to try the rules before buying a challenge? Use the free **\$1,000 demo account** — see [Demo account](/getting-started/demo-account).
-</Tip>
+  <Card title="Funded payouts" icon="banknote" href="/funded/payouts">
+    See the full payout flow, limits, and wallet rules.
+  </Card>
+</CardGroup>

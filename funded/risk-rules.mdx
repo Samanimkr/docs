@@ -1,10 +1,21 @@
 ---
 title: "Funded Account Risk Rules: Drawdowns, Targets, Limits"
 sidebarTitle: "Risk rules"
-description: "The same risk rules from your challenge carry over to your funded account — profit target, drawdowns, max risk per trade, and inactivity limits."
+description: "The same risk rules from your challenge carry over to your funded account: payout threshold, drawdowns, max risk per trade, and inactivity limits."
 ---
 
 The risk rules that applied during your challenge carry over to your funded account. Drawdown, max-risk, and inactivity are enforced the same way. Payout eligibility is tracked separately from those risk rules and is based on realized profit.
+
+## Quick summary
+
+<CardGroup cols={2}>
+  <Card title="Payout rules" icon="banknote">
+    30% realized-profit threshold, 90% split, USDC on Polygon, and a current \$1,000 gross max request.
+  </Card>
+  <Card title="Risk limits" icon="shield-check">
+    10% daily drawdown, 20% total drawdown, 5% max risk per trade, and 14-day inactivity.
+  </Card>
+</CardGroup>
 
 ## Rules at a glance
 
@@ -20,7 +31,7 @@ The risk rules that applied during your challenge carry over to your funded acco
 
 ### Payout threshold
 
-Your payout threshold is 30% of your funded account's starting balance. It is based on **realized profit only** — open positions do not count until they are closed — and prior paid payouts are deducted from the realized-profit calculation.
+Your payout threshold is 30% of your funded account's starting balance. It is based on **realized profit only**. Open positions do not count until they are closed, and prior paid payouts are deducted from the realized-profit calculation.
 
 | Account size | Profit target |
 |---|---|
@@ -35,12 +46,12 @@ Your payout threshold is 30% of your funded account's starting balance. It is ba
 At the start of each UTC day, your equity is snapshotted. If your equity drops more than 10% below that level at any point during the day, your funded account is breached.
 
 <Warning>
-  The daily drawdown resets each UTC midnight — not at a fixed clock time local to you. Plan your trading sessions accordingly.
+  The daily drawdown resets each UTC midnight, not at a fixed clock time local to you. Plan your trading sessions accordingly.
 </Warning>
 
 ### Max total drawdown
 
-PolyFundr tracks your all-time peak equity. If your equity ever falls more than 20% below that peak, your funded account is breached. The peak only moves upward — once you reach new highs, the floor rises with you.
+PolyFundr tracks your all-time peak equity. If your equity ever falls more than 20% below that peak, your funded account is breached. The peak only moves upward. Once you reach new highs, the floor rises with you.
 
 <Info>
   Drawdown calculations are adjusted for payouts you have already received. Withdrawing profits does not lower your drawdown floor or move you closer to a breach.
@@ -50,7 +61,7 @@ PolyFundr tracks your all-time peak equity. If your equity ever falls more than 
 
 Before every trade, the platform checks the worst-case loss across all your open positions in the same market plus the new trade. If that combined exposure exceeds 5% of your starting balance, the trade is blocked.
 
-This rule is enforced on the starting balance of your funded account — not on your current equity — so the absolute dollar limit stays constant.
+This rule is enforced on the starting balance of your funded account, not on your current equity, so the absolute dollar limit stays constant.
 
 | Account size | Max risk per trade |
 |---|---|
@@ -69,5 +80,5 @@ If more than 14 consecutive days pass without a qualifying trade, your funded ac
 If a rule violation is detected, your funded account is closed. You would need to purchase and pass a new challenge to receive a new funded account.
 
 <Note>
-  The max risk per trade rule is enforced in real time — trades that would breach it are blocked before they execute. Daily and total drawdown violations are evaluated continuously and will close the account immediately on breach.
+  The max risk per trade rule is enforced in real time. Trades that would breach it are blocked before they execute. Daily and total drawdown violations are evaluated continuously and will close the account immediately on breach.
 </Note>

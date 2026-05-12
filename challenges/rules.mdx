@@ -1,29 +1,51 @@
 ---
-title: "Challenge Rules Explained in Full Detail"
+title: "Challenge Rules"
 sidebarTitle: "Rules"
 description: "Every rule that governs your challenge account: profit target, minimum trading days, daily drawdown, total drawdown, max risk per trade, and inactivity."
 ---
 
-Your challenge account is governed by two sets of rules: **pass conditions** you must meet to complete the challenge, and **fail conditions** that end it immediately if breached. You need to satisfy every pass condition simultaneously, and you must never trigger any fail condition.
+Use this page as the source of truth for challenge rules. It covers how you pass, what fails the account, and which risk rules continue after you get funded.
 
-## Pass conditions
+## Quick summary
 
-You pass the challenge the moment both of the following are true at the same time, with no rule violations on record.
+<CardGroup cols={2}>
+  <Card title="You pass when" icon="badge-check">
+    Equity reaches +30% and you have traded on 7 separate days.
+  </Card>
+  <Card title="You fail when" icon="shield-alert">
+    You breach daily drawdown, total drawdown, max risk per trade, or inactivity.
+  </Card>
+</CardGroup>
+
+## Challenge vs funded
+
+| | Challenge | Funded account |
+| :-- | :-- | :-- |
+| Main goal | Pass the challenge | Become payout-eligible |
+| What counts toward the target | Equity | Realized profit |
+| Target size | 30% of starting balance | 30% of starting balance |
+| Open positions | Count in equity | Do not count until closed |
+| Core risk rules | 10% daily, 20% total, 5% max risk, 14-day inactivity | Same risk rules |
+| Payouts | Not available | 90% split, current \$1,000 gross max request |
+
+## You pass when
+
+You pass the challenge the moment both of these are true at the same time.
 
 | Condition | Requirement |
 | :-- | :-- |
 | **Profit target** | Your account equity reaches **+30%** above your starting balance |
 | **Minimum trading days** | You have placed at least one qualifying trade on **7 distinct calendar days** |
 
-A qualifying trade is any trade with a notional value of **\$1 or more**. Trading days are counted in UTC — two trades placed on the same UTC calendar day count as one trading day.
+A qualifying trade is any trade with a notional value of **\$1 or more**. Trading days are counted in UTC. Two trades placed on the same UTC calendar day count as one trading day.
 
 <Note>
-Both conditions must be satisfied at the same time. Reaching the profit target on day 5 does not pass the challenge — you still need to reach 7 trading days with the equity at or above the target.
+Both conditions must be true at the same time. If you hit the equity target on day 5, you still need to reach day 7 with equity at or above the target.
 </Note>
 
-## Fail conditions
+## Your account fails when
 
-Any one of the following ends your challenge immediately and permanently.
+Any one of these conditions ends the challenge immediately.
 
 | Condition | Limit | Measured from |
 | :-- | :-- | :-- |
@@ -38,15 +60,35 @@ At the start of each UTC day, the platform snapshots your account equity. If you
 
 **Example:** You start a UTC day with \$52,000 in equity. Your daily floor is \$52,000 x 0.90 = \$46,800. If your equity drops to \$46,799 at any point that day, the challenge ends.
 
+```mermaid
+%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 65, 'padding': 16}} }%%
+flowchart TB
+    A["00:00 UTC snapshot<br/>Equity = $52,000"] --> B["Daily floor<br/>= $46,800"]
+    B --> C{"Does equity fall below the floor<br/>during this UTC day?"}
+    C -->|Yes| D["Challenge fails immediately"]
+    C -->|No| E["Next UTC day starts<br/>new snapshot and new floor"]
+```
+
 <Warning>
 The daily drawdown resets each UTC day using a fresh equity snapshot. A large gain on one day raises the floor for the next day.
 </Warning>
 
 ### Max total drawdown (trailing)
 
-The platform tracks your highest-ever equity. If your equity falls more than **20% below that all-time peak**, the account fails. The high-water mark only moves up — once you reach a new equity peak, the floor rises with it and never comes back down.
+The platform tracks your highest-ever equity. If your equity falls more than **20% below that all-time peak**, the account fails. The high-water mark only moves up. Once you reach a new peak, the floor rises with it and does not move back down.
 
 **Example:** Your starting balance is \$50,000 and your equity peaks at \$58,000. Your total drawdown floor is \$58,000 x 0.80 = \$46,400. If your equity falls to \$46,399, the challenge ends.
+
+```mermaid
+%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 65, 'padding': 16}} }%%
+flowchart TB
+    A["Starting balance = $50,000"] --> B["Peak equity rises to $58,000"]
+    B --> C["Trailing floor rises to $46,400"]
+    C --> D{"Does equity fall below $46,400?"}
+    D -->|Yes| E["Challenge fails"]
+    D -->|No| F["If equity reaches a new peak,<br/>the floor rises again"]
+    F --> G["Example: new peak $60,000<br/>new floor $48,000"]
+```
 
 <Info>
 Drawdown calculations are adjusted for any payouts already made. Withdrawing profits on a funded account does not move you closer to a breach.
@@ -56,7 +98,7 @@ Drawdown calculations are adjusted for any payouts already made. Withdrawing pro
 
 Before every trade, the platform calculates your worst-case loss across all open positions on the same market plus the new trade you are about to place. If that combined worst-case loss exceeds 5% of your starting balance, the trade is blocked.
 
-**Example:** On a \$50,000 challenge, 5% is \$2,500. If you already have \$1,800 at risk on a market and try to add a trade that risks another \$900 on the same market, the total would be \$2,700 — the trade is blocked.
+**Example:** On a \$50,000 challenge, 5% is \$2,500. If you already have \$1,800 at risk on a market and try to add a trade that risks another \$900 on the same market, the total would be \$2,700. The trade is blocked.
 
 <Tip>
 The 5% limit is calculated from your **starting balance**, not your current equity. It does not change as your account grows or shrinks.
@@ -66,18 +108,16 @@ The 5% limit is calculated from your **starting balance**, not your current equi
 
 If 14 or more days pass without a qualifying trade (\$1+ notional), the account fails. The clock starts at challenge activation and resets with every qualifying trade you place.
 
-## Rules that carry over to funded accounts
+## What carries over to funded accounts
 
-Your funded account keeps the same drawdown, max-risk, and inactivity rules after you pass. The payout threshold changes from an equity-based pass condition to a realized-profit threshold.
+After you pass, your funded account keeps these risk rules:
 
-| Rule | Challenge | Funded account |
-| :-- | :-- | :-- |
-| Profit target | 30% of starting balance in equity | 30% of starting balance in realized profit after prior paid payouts |
-| Daily drawdown | 10% of day's starting equity | 10% of day's starting equity |
-| Total drawdown | 20% trailing from peak | 20% trailing from peak |
-| Max risk per trade | 5% of starting balance | 5% of starting balance |
-| Min trading days | 7 distinct days | Not part of the payout request checks shown in the app |
-| Max inactivity | 14 days | 14 days |
+- 10% max daily drawdown
+- 20% max total drawdown
+- 5% max risk per trade
+- 14-day max inactivity
+
+Funded payout eligibility is explained on [Funded payouts](/funded/payouts).
 
 ## What is allowed
 

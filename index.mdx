@@ -1,6 +1,6 @@
 ---
 title: PolyFundr Help Center
-description: Find answers about PolyFundr challenges, trading rules, funded accounts, and payouts.
+description: Find answers about PolyFundr challenges, funded accounts, payouts, and rules.
 mode: custom
 ---
 
@@ -11,7 +11,7 @@ mode: custom
         PolyFundr Help Center
       </h1>
       <p className="text-center text-balance text-base text-gray-600 dark:text-gray-400 mt-2">
-        Search the PolyFundr help center for challenge rules, trading guides, payouts, and account setup.
+        Search the PolyFundr help center for challenge rules, funded account details, and payout help.
       </p>
     </div>
 
@@ -58,22 +58,25 @@ mode: custom
   </div>
 
   <div className="flex flex-col gap-4">
-    <h3 className="text-base font-medium text-gray-900 dark:text-gray-50">Featured guides</h3>
+    <h3 className="text-base font-medium text-gray-900 dark:text-gray-50">Start here</h3>
+    <p className="text-base text-gray-600 dark:text-gray-400">
+      If you are new to PolyFundr, read these in order.
+    </p>
     <Columns cols={3}>
       <Card
         horizontal
-        icon="rocket"
+        icon="circle-play"
         iconType="light"
-        title="Get Started"
-        href="/getting-started/introduction"
+        title="1. How PolyFundr works"
+        href="/getting-started/how-it-works"
       >
-        Sign up, try the demo, and understand how PolyFundr works
+        Start with the full challenge, funded account, and payout flow
       </Card>
-      <Card horizontal icon="trophy" iconType="light" title="Challenges" href="/challenges/overview">
-        Rules, account sizes, fees, and how to buy a challenge
+      <Card horizontal icon="shield-check" iconType="light" title="2. Challenge rules" href="/challenges/rules">
+        Learn the exact pass conditions, drawdown rules, and fail conditions
       </Card>
-      <Card horizontal icon="wallet" iconType="light" title="Funded Accounts" href="/funded/overview">
-        Passing your challenge, risk rules, and requesting payouts
+      <Card horizontal icon="banknote" iconType="light" title="3. Funded payouts" href="/funded/payouts">
+        See how payout eligibility, wallet payouts, and payout limits work
       </Card>
     </Columns>
   </div>
@@ -81,43 +84,52 @@ mode: custom
   ---
 
   <div className="flex flex-col gap-4">
-    <h3 className="text-base font-medium text-gray-900 dark:text-gray-50">All guides</h3>
+    <h3 className="text-base font-medium text-gray-900 dark:text-gray-50">Browse by topic</h3>
     <Columns cols={3}>
     <Card
-      title="Trading"
-      icon="trending-up"
+      title="Introduction"
+      icon="rocket"
       iconType="light"
-      href="/trading/markets"
-      cta="3 articles"
+      href="/getting-started/introduction"
+      cta="Read article"
     >
-      Markets, placing trades, and tracking positions and PnL
+      Quick summary of what PolyFundr is and where to begin
+    </Card>
+    <Card
+      title="Challenge overview"
+      icon="trophy"
+      iconType="light"
+      href="/challenges/overview"
+      cta="Read article"
+    >
+      Compare account sizes, fees, and what happens after you pass
     </Card>
     <Card
       title="Challenge rules"
       icon="shield-check"
       iconType="light"
       href="/challenges/rules"
-      cta="1 article"
+      cta="Read article"
     >
       Profit targets, drawdown limits, and inactivity rules explained
     </Card>
     <Card
-      title="Payouts"
-      icon="banknote"
+      title="Buy a challenge"
+      icon="credit-card"
       iconType="light"
-      href="/funded/payouts"
-      cta="1 article"
+      href="/challenges/buying-a-challenge"
+      cta="Read article"
     >
-      How to request a payout, profit splits, and USDC transfers
+      Step-by-step purchase flow and payment notes
     </Card>
     <Card
-      title="Account & Wallet"
-      icon="user"
+      title="Funded accounts"
+      icon="wallet"
       iconType="light"
-      href="/account/signup-and-login"
-      cta="3 articles"
+      href="/funded/overview"
+      cta="Read article"
     >
-      Sign in with Privy, connect a wallet, and manage notifications
+      See what changes after you pass, what stays the same, and how payouts work
     </Card>
     <Card
       title="FAQ"
@@ -128,22 +140,13 @@ mode: custom
     >
       Common questions about PolyFundr, payouts, and challenge rules
     </Card>
-    <Card
-      title="Demo account"
-      icon="flask-conical"
-      iconType="light"
-      href="/getting-started/demo-account"
-      cta="1 article"
-    >
-      Try the platform risk-free with a free \$1,000 demo account
-    </Card>
     </Columns>
   </div>
 
   ---
 
   <div className="flex flex-col gap-2">
-    <h3 className="text-base font-medium text-gray-900 dark:text-gray-50">Suggested articles</h3>
+    <h3 className="text-base font-medium text-gray-900 dark:text-gray-50">Popular articles</h3>
     <p className="text-base text-gray-600 dark:text-gray-400">
       Popular starting points from the PolyFundr Help Center
     </p>
@@ -168,7 +171,7 @@ mode: custom
       href="/challenges/rules"
       cta="Read article"
     >
-      Every rule that governs your challenge account — profit targets, drawdowns, and more.
+      Every rule that governs your challenge account, including profit targets, drawdowns, and risk limits.
     </Card>
     <Card
       horizontal
@@ -182,13 +185,13 @@ mode: custom
     </Card>
     <Card
       horizontal
-      title="Placing a trade"
-      icon="trending-up"
+      title="What happens after you pass"
+      icon="wallet"
       iconType="light"
-      href="/trading/placing-trades"
+      href="/funded/overview"
       cta="Read article"
     >
-      Step-by-step guide to trading YES/NO outcomes on live Polymarket events.
+      What changes, what stays the same, and how your funded account starts.
     </Card>
   </Columns>
 </div>

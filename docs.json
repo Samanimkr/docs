@@ -29,18 +29,15 @@
         "group": "Get Started",
         "icon": "rocket",
         "expanded": true,
-        "root": "getting-started/index",
         "pages": [
           "getting-started/introduction",
-          "getting-started/how-it-works",
-          "getting-started/demo-account"
+          "getting-started/how-it-works"
         ]
       },
       {
         "group": "Challenges",
         "icon": "trophy",
         "expanded": true,
-        "root": "challenges/index",
         "pages": [
           "challenges/overview",
           "challenges/rules",
@@ -48,21 +45,9 @@
         ]
       },
       {
-        "group": "Trading",
-        "icon": "trending-up",
-        "expanded": true,
-        "root": "trading/index",
-        "pages": [
-          "trading/markets",
-          "trading/placing-trades",
-          "trading/positions-and-pnl"
-        ]
-      },
-      {
         "group": "Funded Accounts",
         "icon": "wallet",
         "expanded": true,
-        "root": "funded/index",
         "pages": [
           "funded/overview",
           "funded/payouts",
@@ -70,21 +55,9 @@
         ]
       },
       {
-        "group": "Account & Wallet",
-        "icon": "user",
-        "expanded": true,
-        "root": "account/index",
-        "pages": [
-          "account/signup-and-login",
-          "account/wallet",
-          "account/notifications"
-        ]
-      },
-      {
         "group": "FAQ",
         "icon": "circle-question-mark",
         "expanded": true,
-        "root": "faq/index",
         "pages": [
           "faq/general",
           "faq/payouts",

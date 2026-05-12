@@ -4,37 +4,48 @@ sidebarTitle: "Payouts"
 description: "Request a payout once realized profit reaches the threshold. Payouts are sent in USDC on Polygon to the wallet address you enter with each request."
 ---
 
-Payouts are how you withdraw your share of profits from your funded account. Eligibility is based on **realized profit** — open positions do not count until they are closed — and requests are sent in USDC on Polygon to the destination wallet address you enter at submission time.
+Use this page as the main source for funded payouts. It explains when you are eligible, how much you can request, and how the wallet payout flow works.
 
-## Profit split
+## You can request a payout when
 
-Every payout is divided between you and PolyFundr:
-
-- **90%** goes to you
-- **10%** goes to PolyFundr
-
-For example, on a \$50,000 funded account, the payout threshold is \$15,000 in realized profit. Once you are eligible, the current maximum request is \$1,000 gross, which pays \$900 to you at the standard 90% split.
-
-## When you can request a payout
-
-You can submit a payout request when all of the following are true:
+All of these must be true:
 
 1. Your **realized profit** after prior paid payouts has reached the threshold (30% of your starting balance).
 2. You have **no other payout request pending** for that funded account.
 3. You provide a valid **EVM wallet address** that can receive USDC on Polygon.
 
 <Note>
-  Only realized profit counts toward the payout threshold. The value of open positions is excluded until those positions are closed.
+  Only realized profit counts. Open positions do not count until you close them.
 </Note>
 
-## Current request limits
+## Current payout rules
 
-- **Current max request:** \$1,000 gross per payout request
 - **Profit split:** 90% to you, 10% to PolyFundr
+- **Threshold:** 30% of starting balance in realized profit
+- **Current max request:** \$1,000 gross per request
+- **Payout currency:** USDC on Polygon
 - **Destination:** required on every request and not saved as a default
 - **One pending request at a time:** while pending, the requested gross amount is reserved against further payout availability
+- **Processing time:** usually within 24 hours
 
-## How to request a payout
+## Simple example
+
+On a \$50,000 funded account, the threshold is \$15,000 in realized profit. Once you are eligible, the current maximum request is \$1,000 gross. At a 90% split, that pays \$900 to you.
+
+## Payout lifecycle
+
+```mermaid
+%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 65, 'padding': 16}} }%%
+flowchart TB
+    A["Close positions you want included"] --> B["Reach realized-profit threshold"]
+    B --> C["Submit payout request<br/>with destination wallet address"]
+    C --> D["Requested amount becomes pending<br/>and is reserved"]
+    D --> E{"Approved?"}
+    E -->|Yes| F["USDC sent on Polygon"]
+    E -->|No| G["Request rejected<br/>reserved amount is released"]
+```
+
+## How to request one
 
 <Steps>
   <Step title="Close any positions you want included">
@@ -44,7 +55,7 @@ You can submit a payout request when all of the following are true:
     In the app, navigate to **Payouts** from the main menu.
   </Step>
   <Step title="Enter your destination wallet address">
-    Provide the wallet address you want the USDC sent to. This address is not saved — you must enter it with every request.
+    Provide the wallet address you want the USDC sent to. This address is not saved. You must enter it with every request.
   </Step>
   <Step title="Submit the request">
     Review the payout amount and confirm. Once submitted, the requested amount is reserved against your available balance while the payout is pending.
@@ -56,9 +67,9 @@ You can submit a payout request when all of the following are true:
 
 ## Destination wallet requirements
 
-Funds are sent as USDC to the wallet address you provide at the time of the request. Enter the full address carefully — the destination is not saved between requests and transfers cannot be reversed once sent.
+Funds are sent as USDC to the wallet address you provide at the time of the request. Enter the full address carefully. The destination is not saved between requests, and transfers cannot be reversed once sent.
 
-## How pending payouts affect your balance
+## What happens after you submit
 
 When you submit a request, the requested amount is **reserved** against your available balance immediately. This means:
 
@@ -69,10 +80,10 @@ When you submit a request, the requested amount is **reserved** against your ava
   Always provide the correct destination wallet address. Payout destinations are not saved, and on-chain USDC transfers cannot be recalled once sent.
 </Warning>
 
-## How the threshold behaves
+## How the threshold works after a payout
 
-The payout threshold stays tied to your funded account's starting balance. After a payout is sent, prior paid payouts are deducted from the realized-profit calculation, so you need to build realized profit back above the threshold before the next request becomes available.
+The threshold stays tied to your funded account's starting balance. After a payout is sent, prior paid payouts are deducted from the realized-profit calculation. You need to build realized profit back above the threshold before the next request becomes available.
 
-## Processing time
-
-Payouts are processed within 24 hours on average. You'll receive an in-app notification when your payout is approved and the transfer is sent.
+<Info>
+  Need the funded account overview? Read [Funded overview](/funded/overview).
+</Info>

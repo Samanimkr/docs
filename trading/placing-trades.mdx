@@ -4,7 +4,7 @@ sidebarTitle: "Placing trades"
 description: "Step-by-step guide to placing a simulated YES or NO trade on PolyFundr, including how entry price and shares are calculated from your amount."
 ---
 
-Trades on PolyFundr are simulated — there is no on-chain execution. When you submit a trade, the platform records your position using the current Polymarket price as your entry price. Your shares and potential PnL are calculated from that snapshot. You need an active challenge or funded account to place a trade.
+Trades on PolyFundr are simulated. There is no on-chain execution. When you submit a trade, the platform records your position using the current Polymarket price as your entry price. Your shares and potential PnL are calculated from that snapshot. You need an active challenge or funded account to place a trade.
 
 ## Before you trade
 
@@ -17,19 +17,19 @@ Trades on PolyFundr are simulated — there is no on-chain execution. When you s
     From the dashboard, click any event card to open its event page at `/event/[slug]`.
   </Step>
   <Step title="Select an outcome">
-    The outcomes table lists all tradable markets for the event. Click a row to select it, or click the **Yes** or **No** button directly — this selects the outcome and pre-fills the direction in the trade panel in one action.
+    The outcomes table lists all tradable markets for the event. Click a row to select it, or click the **Yes** or **No** button directly. This selects the outcome and pre-fills the direction in the trade panel.
   </Step>
   <Step title="Choose YES or NO">
     In the trade panel, choose your direction:
-    - **YES** — you believe the outcome will resolve YES. Your entry price is the current YES token price.
-    - **NO** — you believe the outcome will resolve NO. Your entry price is the current NO token price.
+    - **YES:** you believe the outcome will resolve YES. Your entry price is the current YES token price.
+    - **NO:** you believe the outcome will resolve NO. Your entry price is the current NO token price.
   </Step>
   <Step title="Enter an amount">
     Type a USDC amount in the **Amount (\$)** field, or use the quick-add buttons (+\$1, +\$20, +\$100) to build up your size. The **MAX** button fills in the maximum risk amount allowed by your challenge rules.
 
     As you type, the panel shows:
-    - **Avg. price** — the entry price in cents.
-    - **To win** — the potential gain if the trade closes at 100¢.
+    - **Avg. price:** the entry price in cents.
+    - **To win:** the potential gain if the trade closes at 100¢.
   </Step>
   <Step title="Submit the trade">
     Click **Trade · \$amount**. The position is recorded immediately at the latest snapshot price.
@@ -45,9 +45,9 @@ When your trade is recorded, the platform computes the following:
 | **Entry price** | Current YES token price (for YES trades) or current NO token price (for NO trades), expressed in cents |
 | **Shares** | Amount (USDC) ÷ entry price (as a decimal, e.g. 50¢ = 0.50) |
 
-For example: if you trade YES at 40¢ with \$20, your entry price is 0.40 and you receive 50 shares. If YES resolves to 100¢, those shares are worth \$50 — a \$30 gain on your \$20.
+For example: if you trade YES at 40¢ with \$20, your entry price is 0.40 and you receive 50 shares. If YES resolves to 100¢, those shares are worth \$50, which is a \$30 gain on your \$20.
 
-<Note>Each fill is stored as its own position. PolyFundr does not net or aggregate fills on the same outcome — submitting two separate YES trades creates two separate positions.</Note>
+<Note>Each fill is stored as its own position. PolyFundr does not net or aggregate fills on the same outcome. Submitting two separate YES trades creates two separate positions.</Note>
 
 ## Wide spread warning
 
