@@ -9,16 +9,19 @@ The challenge rules define exactly what you need to achieve to pass, and what yo
 <AccordionGroup>
 
 <Accordion title="What is the profit target?">
-The profit target is **30% of your starting balance**. You must reach this level in realized (closed) profit to pass the challenge or become eligible for a payout on a funded account.
+The profit target is **30% of your starting balance**, but it is measured differently on challenge and funded accounts.
+
+- **Challenge pass:** your **equity** must reach the 30% target, and you must complete 7 trading days.
+- **Funded payout eligibility:** your **realized profit** must reach the 30% threshold after prior paid payouts are accounted for.
 
 For example:
-- $10,000 account → $3,000 realized profit required
-- $50,000 account → $15,000 realized profit required
-- $200,000 account → $60,000 realized profit required
+- \$10,000 account → \$3,000 target
+- \$50,000 account → \$15,000 target
+- \$200,000 account → \$60,000 target
 </Accordion>
 
 <Accordion title="What counts as a trading day?">
-A trading day is any calendar day on which you place **at least one trade with a notional value of $1 or more**. You need at least **7 distinct trading days** before you can pass a challenge.
+A trading day is any calendar day on which you place **at least one trade with a notional value of \$1 or more**. You need at least **7 distinct trading days** before you can pass a challenge.
 
 Days are counted separately — trading a large volume on one day does not substitute for trading across multiple days.
 </Accordion>
@@ -26,7 +29,7 @@ Days are counted separately — trading a large volume on one day does not subst
 <Accordion title="How is the daily drawdown limit measured?">
 At the start of each UTC day, PolyFundr takes a snapshot of your equity. If your equity drops more than **10% below that snapshot at any point during the day**, the account fails immediately.
 
-For example, if your equity at the start of a UTC day is $52,000, your account would fail if equity fell below $46,800 (a $5,200 drop) at any point that day.
+For example, if your equity at the start of a UTC day is \$52,000, your account would fail if equity fell below \$46,800 (a \$5,200 drop) at any point that day.
 </Accordion>
 
 <Accordion title="How is the total drawdown limit measured?">
@@ -34,17 +37,17 @@ Total drawdown is measured on a **trailing high-water mark** basis. PolyFundr tr
 
 The high-water mark only moves up — once you reach a new equity high, the drawdown floor rises with it. It never resets downward.
 
-For example, if your account peaks at $60,000, the total drawdown floor is $48,000. If you then return to $60,000 and reach $65,000, the new floor becomes $52,000.
+For example, if your account peaks at \$60,000, the total drawdown floor is \$48,000. If you then return to \$60,000 and reach \$65,000, the new floor becomes \$52,000.
 </Accordion>
 
 <Accordion title="What is the max risk per trade?">
 The max risk per trade is **5% of your starting balance**. Before every trade is placed, PolyFundr checks the worst-case loss across all your open positions on the same market plus the new trade. If the combined worst-case loss would exceed 5% of your starting balance, the trade is blocked.
 
-For example, on a $50,000 account, no single setup can risk more than $2,500.
+For example, on a \$50,000 account, no single setup can risk more than \$2,500.
 </Accordion>
 
 <Accordion title="What is the inactivity limit?">
-If **14 days pass without a qualifying trade**, the account fails. The inactivity clock starts when the account is activated and resets every time you place a qualifying trade (at least $1 notional).
+If **14 days pass without a qualifying trade**, the account fails. The inactivity clock starts when the account is activated and resets every time you place a qualifying trade (at least \$1 notional).
 
 This rule applies to both challenge accounts and funded accounts.
 </Accordion>
@@ -54,7 +57,7 @@ The account fails immediately when any rule is breached. You can purchase a new 
 </Accordion>
 
 <Accordion title="Do the same risk rules apply on funded accounts?">
-Yes. The same risk rules that govern the challenge carry over to the funded account: 30% profit target (per payout cycle), 10% daily drawdown, 20% total drawdown, 5% max risk per trade, 7 minimum trading days between payouts, and 14 days max inactivity.
+The funded account keeps the same **daily drawdown, total drawdown, max risk per trade, and inactivity** rules. The main difference is the profit target: challenge passing is equity-based, while payout eligibility on funded accounts is based on realized profit.
 </Accordion>
 
 <Accordion title="Are challenge and funded account trades mixed together?">

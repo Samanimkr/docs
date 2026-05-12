@@ -8,7 +8,7 @@
     "light": "#ffffff",
     "dark": "#07121e"
   },
-  "favicon": "https://media.brand.dev/618add50-107b-43c3-91fc-59fe7c6a2bd0.png",
+  "favicon": "/images/Logo-256x256.png",
   "logo": {
     "light": "/images/polyfundr-help-center-logo-light.png",
     "dark": "/images/polyfundr-help-center-logo-dark.png"

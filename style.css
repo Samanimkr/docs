@@ -174,67 +174,7 @@ ul:is(:has(> #topbar-cta-button), :has(> li.navbar-link)) {
   }
 }
 
-/* custom styling for the suggested articles section on the homepage */
+/* keep suggested article cards compact and text-led */
 .columns.suggested-articles {
-  gap: 1.5rem 2rem;
-
-  .card {
-    border: none;
-    border-radius: 0;
-    margin: 0;
-
-    [data-component-part="card-content-container"] {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 0;
-
-      [data-component-part="card-icon"] {
-        display: grid;
-        place-items: center;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 2;
-        border-radius: 1rem;
-        transition: background-color 0.15s ease-out;
-        background-color: rgb(var(--primary));
-        color: #ffffff !important;
-
-        svg {
-          scale: 1.5;
-          background-color: #ffffff;
-        }
-
-        .group:hover & {
-          filter: brightness(0.95);
-        }
-
-        .dark & {
-          .group:hover & {
-            filter: brightness(1.1);
-          }
-        }
-      }
-
-      [data-component-part="card-icon"] + div {
-        display: contents;
-      }
-
-      :is(
-        [data-component-part="card-title"],
-        [data-component-part="card-content"],
-        [data-component-part="card-cta"]
-      ) {
-        margin: 0;
-      }
-
-      [data-component-part="card-content"] {
-        text-wrap: pretty;
-      }
-
-      [data-component-part="card-cta"] button {
-        font-size: inherit;
-      }
-    }
-  }
+  gap: 1rem 1.5rem;
 }

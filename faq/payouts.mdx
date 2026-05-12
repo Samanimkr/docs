@@ -1,7 +1,7 @@
 ---
 title: "Payouts FAQ: How and When You Get Paid"
 sidebarTitle: "Payouts"
-description: "Everything about PolyFundr payouts — profit splits, timing, USDC transfers, bank payments, and what counts toward your available balance."
+description: "Everything about PolyFundr payouts — profit splits, timing, USDC on Polygon, request limits, and what counts toward your available balance."
 ---
 
 Once you pass your challenge and start trading on a funded account, payouts are how you withdraw your share of realized profits. The questions below explain how the payout process works, when you can request one, and how funds are sent to you.
@@ -13,7 +13,7 @@ The profit split is **90% to you, 10% to PolyFundr**. This applies to all funded
 </Accordion>
 
 <Accordion title="When can I request a payout?">
-You can request a payout once your realized profit on the funded account reaches the **30% profit target** for that account. For example, on a $50,000 funded account, you become eligible once you have closed $15,000 in realized profit.
+You can request a payout once your realized profit on the funded account reaches the **30% threshold** for that account after prior paid payouts are accounted for. For example, on a \$50,000 funded account, you become eligible once you have \$15,000 in realized profit.
 
 Only realized profit counts — open positions are excluded until they are closed.
 </Accordion>
@@ -24,16 +24,20 @@ Submit your payout request through the **Payouts** section of your dashboard. Ev
 Once submitted, your request is reviewed and the funds are sent to the address you provided.
 </Accordion>
 
+<Accordion title="Is there a maximum payout request size?">
+Yes. The current maximum is **\$1,000 gross per payout request**. At the standard 90% split, a \$1,000 gross request pays \$900 to you.
+</Accordion>
+
 <Accordion title="How fast are payouts processed?">
 Payouts are processed within **24 hours on average**. There is no fixed schedule — payouts are handled on demand as requests come in.
 </Accordion>
 
 <Accordion title="What currency are payouts in?">
-Payouts are sent in **USDC on the Polygon network**. If you prefer, you can also receive your payout by **bank transfer** instead of a crypto wallet.
+Payouts are sent in **USDC on the Polygon network**.
 </Accordion>
 
-<Accordion title="Can I get paid to a bank account?">
-Yes. If you prefer not to receive USDC to a wallet, you can request a bank transfer instead. Select your preferred payment method when submitting your payout request through the dashboard.
+<Accordion title="What kind of wallet address do I need?">
+You must provide a valid **EVM wallet address** that can receive **USDC on Polygon**. The destination is required on every request and is not saved as a default.
 </Accordion>
 
 <Accordion title="Do open positions count toward my payout?">
@@ -41,7 +45,7 @@ No. Only **realized profit from closed positions** counts toward your payout eli
 </Accordion>
 
 <Accordion title="What happens to the amount I request while it is being processed?">
-The requested amount is **reserved against your available balance** while the payout is pending. You cannot request the same funds twice while a payout request is in progress.
+The requested amount is **reserved against your available payout balance** while the payout is pending. You cannot request the same gross amount twice while a request is still in progress.
 </Accordion>
 
 <Accordion title="Does withdrawing profits affect my drawdown limits?">
