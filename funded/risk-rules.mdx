@@ -10,7 +10,8 @@ The risk rules that applied during your challenge carry over to your funded acco
 
 <CardGroup cols={2}>
   <Card title="Payout rules" icon="banknote">
-    30% realized-profit threshold, 90% split, USDC on Polygon, and a current \$1,000 gross max request.
+    30% realized-profit threshold, 90% split, USDC on Polygon, and progressive
+    payout caps from \$1,000 to \$5,000 gross per request.
   </Card>
   <Card title="Risk limits" icon="shield-check">
     10% daily drawdown, 20% total drawdown, 5% max risk per trade, and 14-day inactivity.
@@ -40,6 +41,18 @@ Your payout threshold is 30% of your funded account's starting balance. It is ba
 | \$50,000 | \$15,000 |
 | \$100,000 | \$30,000 |
 | \$200,000 | \$60,000 |
+
+### Progressive payout caps
+
+Payout requests follow this structure:
+
+- 1st payout request: up to \$1,000 gross
+- 2nd payout request: up to \$2,000 gross
+- 3rd payout request and later: up to \$5,000 gross
+
+Larger funded accounts still provide more trading room because drawdown and risk
+limits scale with account size. The payout structure is intended to reflect
+that more fairly over time.
 
 ### Max daily drawdown
 

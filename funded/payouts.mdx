@@ -15,53 +15,71 @@ All of these must be true:
 3. You provide a valid **EVM wallet address** that can receive USDC on Polygon.
 
 <Note>
-  Only realized profit counts. Open positions do not count until you close them.
+  Minimum trading days do not apply to funded payout requests. Only realized
+  profit, the one-pending-request rule, and the wallet requirement matter here.
 </Note>
 
 ## Current payout rules
 
 - **Profit split:** 90% to you, 10% to PolyFundr
 - **Threshold:** 30% of starting balance in realized profit
-- **Current max request:** \$1,000 gross per request
+- **Progressive payout caps:**
+  - 1st payout request: up to \$1,000 gross
+  - 2nd payout request: up to \$2,000 gross
+  - 3rd payout request and later: up to \$5,000 gross
 - **Payout currency:** USDC on Polygon
 - **Destination:** required on every request and not saved as a default
-- **One pending request at a time:** while pending, the requested gross amount is reserved against further payout availability
+- **One pending request at a time:** while a request is pending, you cannot open another payout request for that funded account. The requested gross amount is reserved against further payout availability
 - **Processing time:** usually within 24 hours
 
 ## Simple example
 
-On a \$50,000 funded account, the threshold is \$15,000 in realized profit. Once you are eligible, the current maximum request is \$1,000 gross. At a 90% split, that pays \$900 to you.
+On a \$50,000 funded account, the payout threshold is \$15,000 in realized
+profit.
+
+If you continue generating enough realized profit to remain payout-eligible
+across multiple weeks, a payout sequence could look like this:
+
+- **Week 1:** \$1,000 gross
+- **Week 2:** \$2,000 gross
+- **Week 3:** \$5,000 gross
+- **Week 4:** \$5,000 gross
+
+That would be **\$13,000 gross** in total payouts.
+
+At the standard 90% split, that would pay **\$11,700 to you**.
+
+<Info>
+  Larger funded accounts still provide more trading room because the drawdown
+  and risk limits scale with account size. The progressive payout structure is
+  meant to reflect that more fairly than a flat cap.
+</Info>
 
 ## Payout lifecycle
 
-```mermaid
-%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 65, 'padding': 16}} }%%
-flowchart TB
-    A["Close positions you want included"] --> B["Reach realized-profit threshold"]
-    B --> C["Submit payout request<br/>with destination wallet address"]
-    C --> D["Requested amount becomes pending<br/>and is reserved"]
-    D --> E{"Approved?"}
-    E -->|Yes| F["USDC sent on Polygon"]
-    E -->|No| G["Request rejected<br/>reserved amount is released"]
-```
+![Funded payout lifecycle diagram](/images/diagram-payouts.png)
 
 ## How to request one
 
 <Steps>
   <Step title="Close any positions you want included">
-    Payout calculations use realized profit only. Close the positions you want to count before submitting a request.
+    Payout calculations use realized profit only. Close the positions you want
+    to count before submitting a request.
   </Step>
   <Step title="Go to the Payouts page">
     In the app, navigate to **Payouts** from the main menu.
   </Step>
   <Step title="Enter your destination wallet address">
-    Provide the wallet address you want the USDC sent to. This address is not saved. You must enter it with every request.
+    Provide the wallet address you want the USDC sent to. This address is not
+    saved. You must enter it with every request.
   </Step>
   <Step title="Submit the request">
-    Review the payout amount and confirm. Once submitted, the requested amount is reserved against your available balance while the payout is pending.
+    Review the payout amount and confirm. Once submitted, the requested amount
+    is reserved against your available balance while the payout is pending.
   </Step>
   <Step title="Receive your funds">
-    PolyFundr processes the request within 24 hours on average. On approval, USDC is transferred on-chain to the destination address you provided.
+    PolyFundr processes the request within 24 hours on average. On approval,
+    USDC is transferred on-chain to the destination address you provided.
   </Step>
 </Steps>
 
@@ -73,16 +91,21 @@ Funds are sent as USDC to the wallet address you provide at the time of the requ
 
 When you submit a request, the requested amount is **reserved** against your available balance immediately. This means:
 
-- You cannot request the same gross amount again while that payout is pending.
+- You cannot submit another payout request for that funded account while one is still pending.
 - Your available payout balance is reduced until the request is approved or rejected.
+- Once the pending request is approved or rejected, you can submit another request if you still meet the threshold and have available balance.
 
 <Warning>
-  Always provide the correct destination wallet address. Payout destinations are not saved, and on-chain USDC transfers cannot be recalled once sent.
+  Always provide the correct destination wallet address. Payout destinations are
+  not saved, and on-chain USDC transfers cannot be recalled once sent.
 </Warning>
 
 ## How the threshold works after a payout
 
 The threshold stays tied to your funded account's starting balance. After a payout is sent, prior paid payouts are deducted from the realized-profit calculation. You need to build realized profit back above the threshold before the next request becomes available.
+
+This means the progressive payout caps do **not** bypass the threshold. You
+still need to remain payout-eligible before each request.
 
 <Info>
   Need the funded account overview? Read [Funded overview](/funded/overview).
