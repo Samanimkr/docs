@@ -63,14 +63,7 @@ At the start of each UTC day, the platform snapshots your account equity. If you
 
 **Example:** You start a UTC day with \$52,000 in equity. Your daily floor is \$52,000 x 0.90 = \$46,800. If your equity drops to \$46,799 at any point that day, the challenge ends.
 
-```mermaid
-%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 65, 'padding': 16}} }%%
-flowchart TB
-    A["00:00 UTC snapshot<br/>Equity = $52,000"] --> B["Daily floor<br/>= $46,800"]
-    B --> C{"Does equity fall below the floor<br/>during this UTC day?"}
-    C -->|Yes| D["Challenge fails immediately"]
-    C -->|No| E["Next UTC day starts<br/>new snapshot and new floor"]
-```
+![Daily drawdown diagram](/images/diagram-daily-drawdown.png)
 
 <Warning>
   The daily drawdown resets each UTC day using a fresh equity snapshot. A large
@@ -83,16 +76,7 @@ The platform tracks your highest-ever equity. If your equity falls more than **2
 
 **Example:** Your starting balance is \$50,000 and your equity peaks at \$58,000. Your total drawdown floor is \$58,000 x 0.80 = \$46,400. If your equity falls to \$46,399, the challenge ends.
 
-```mermaid
-%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 65, 'padding': 16}} }%%
-flowchart TB
-    A["Starting balance = $50,000"] --> B["Peak equity rises to $58,000"]
-    B --> C["Trailing floor rises to $46,400"]
-    C --> D{"Does equity fall below $46,400?"}
-    D -->|Yes| E["Challenge fails"]
-    D -->|No| F["If equity reaches a new peak,<br/>the floor rises again"]
-    F --> G["Example: new peak $60,000<br/>new floor $48,000"]
-```
+![Trailing drawdown diagram](/images/diagram-trailing-drawdown.png)
 
 <Info>
   Drawdown calculations are adjusted for any payouts already made. Withdrawing

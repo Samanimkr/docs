@@ -35,16 +35,7 @@ On a \$50,000 funded account, the threshold is \$15,000 in realized profit. Once
 
 ## Payout lifecycle
 
-```mermaid
-%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 65, 'padding': 16}} }%%
-flowchart TB
-    A["Close positions you want included"] --> B["Reach realized-profit threshold"]
-    B --> C["Submit payout request<br/>with destination wallet address"]
-    C --> D["Requested amount becomes pending<br/>and is reserved"]
-    D --> E{"Approved?"}
-    E -->|Yes| F["USDC sent on Polygon"]
-    E -->|No| G["Request rejected<br/>reserved amount is released"]
-```
+![Funded payout lifecycle diagram](/images/diagram-payouts.png)
 
 ## How to request one
 
