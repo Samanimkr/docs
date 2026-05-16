@@ -63,6 +63,14 @@
           "faq/payouts",
           "faq/rules"
         ]
+      },
+      {
+        "group": "Policies",
+        "icon": "shield-alert",
+        "expanded": true,
+        "pages": [
+          "policies/fair-use"
+        ]
       }
     ]
   },
