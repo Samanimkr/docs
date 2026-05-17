@@ -13,10 +13,15 @@ All of these must be true:
 1. Your **realized profit** after prior paid payouts has reached the threshold (30% of your starting balance).
 2. You have **no other payout request pending** for that funded account.
 3. You provide a valid **EVM wallet address** that can receive USDC on Polygon.
+4. **First payout only:** your profit is **consistent**, meaning no single trading day's realized profit is more than 30% of your total realized profit.
 
 <Note>
-  Minimum trading days do not apply to funded payout requests. Only realized
-  profit, the one-pending-request rule, and the wallet requirement matter here.
+  The consistency rule is checked only on your **first** payout from a funded
+  account. Later payouts are not re-checked: only realized profit, the
+  one-pending-request rule, and the wallet requirement matter for those. Like
+  on the challenge, consistency is a gate, not a breach. It only delays your
+  first payout until your profit is spread across enough days; it never closes
+  the account.
 </Note>
 
 ## Current payout rules
