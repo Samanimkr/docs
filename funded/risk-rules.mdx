@@ -43,23 +43,27 @@ Your payout threshold is 30% of your funded account's starting balance. It is ba
 | \$200,000 | \$60,000 |
 
 <Note>
-  Your **first** payout from a funded account also has to pass the consistency
-  rule: no single trading day's realized profit can be more than 30% of your
-  total realized profit. It is a gate, not a breach, and is not re-checked on
-  later payouts. See [Funded payouts](/funded/payouts).
+  **Every** funded payout window also has to pass a consistency rule: no single
+  trading day's profit can be more than 40% of the eligible profit in that
+  window. It is a gate, not a breach, and never closes your account. Trading
+  steadily across a few days clears it. See [Funded payouts](/funded/payouts).
 </Note>
 
-### Progressive payout caps
+### Per-request payout caps
 
-Payout requests follow this structure:
+Each payout is the lowest of three limits:
 
-- 1st payout request: up to \$1,000 gross
-- 2nd payout request: up to \$2,000 gross
-- 3rd payout request and later: up to \$5,000 gross
+- The cap ladder: 1st request up to \$1,000, 2nd up to \$2,000, 3rd and later up to \$5,000 gross.
+- Half of the eligible profit you have earned since your last payout.
+- Your eligible net after prior paid and pending payouts.
+
+A 7-day cooldown applies between payouts. Profit above a cap is not lost: it
+stays in the account and remains withdrawable in later windows. Full detail and
+worked examples are on [Funded payouts](/funded/payouts).
 
 Larger funded accounts still provide more trading room because drawdown and risk
-limits scale with account size. The payout structure is intended to reflect
-that more fairly over time.
+limits scale with account size. The ladder reflects that more fairly over time
+and grows the longer you trade well.
 
 ### Max daily drawdown
 

@@ -27,7 +27,7 @@ Use this page as the source of truth for challenge rules. It covers how you pass
 | What counts toward the target | Equity                                               | Realized profit                              |
 | Target size                   | 30% of starting balance                              | 30% of starting balance                      |
 | Open positions                | Count in equity                                      | Do not count until closed                    |
-| Consistency                   | No single day over 30% of total profit               | Also applies to your first payout only       |
+| Consistency                   | No single day over 30% of total profit               | 40% per payout window, every payout          |
 | Core risk rules               | 10% daily, 20% total, 5% max risk, 14-day inactivity | Same risk rules                              |
 | Payouts                       | Not available                                        | 90% split, progressive payout caps           |
 
@@ -114,9 +114,10 @@ After you pass, your funded account keeps these risk rules:
 
 Funded payout eligibility is explained on [Funded payouts](/funded/payouts).
 
-The consistency rule also applies to your **first funded payout** (no single
-trading day over 30% of total realized profit). Subsequent payouts are not
-re-checked for consistency.
+A consistency rule also applies to **every funded payout window** (no single
+trading day over 40% of the eligible profit in that window). It uses the same
+"no single lucky day" idea as the challenge, with more room. A trader who earns
+steadily across a few days clears it without having to think about it.
 
 ## What is allowed
 

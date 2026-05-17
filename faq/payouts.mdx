@@ -13,10 +13,14 @@ These are the short answers. For the full policy and examples, use [Funded payou
 </Accordion>
 
 <Accordion title="When can I request a payout?">
-You can request a payout once your realized profit on the funded account reaches the **30% threshold** for that account after prior paid payouts are accounted for. For example, on a \$50,000 funded account, you become eligible once you have \$15,000 in realized profit.
+When all of these are true: your **realized eligible profit** (after prior paid payouts) has reached **30% of your starting balance**, your **book is flat** (all positions closed), no other request is pending, and this payout window is **consistent** (no single day over 40% of the window's eligible profit). For example, on a \$50,000 funded account you become eligible once you have \$15,000 in realized eligible profit.
 
-Only realized profit counts. Open positions are excluded until they are closed, and there is no separate minimum trading-days requirement for funded payout requests.
+The 30% is a gate for *requesting*, not a floor your balance can never cross. There is no minimum trading-days requirement, and open positions do not count until closed.
 
+</Accordion>
+
+<Accordion title="What profit counts toward a payout?">
+Losses always count, so nothing is hidden from the calculation. Gains count when the position is closed, the entry price was between **0.10 and 0.90**, and it is not a direct same-market YES/NO hedge. Normal directional trading is fully covered. See [Funded payouts](/funded/payouts) for detail.
 </Accordion>
 
 <Accordion title="How do I request a payout?">
@@ -24,15 +28,14 @@ Only realized profit counts. Open positions are excluded until they are closed, 
   destination wallet address, confirm the amount, and submit.
 </Accordion>
 
-<Accordion title="Is there a maximum payout request size?">
-  Yes. Payout requests use a **progressive structure**:
-
-  - 1st payout request: up to **\$1,000 gross**
-  - 2nd payout request: up to **\$2,000 gross**
-  - 3rd payout request and later: up to **\$5,000 gross**
-
-  At the standard 90% split, a \$13,000 gross sequence would pay \$11,700 to
-  you.
+<Accordion title="How much can I request?">
+  Each payout is the lowest of three limits: the cap ladder (1st up to
+  **\$1,000**, 2nd up to **\$2,000**, 3rd and later up to **\$5,000** gross),
+  **half of the eligible profit you have earned since your last payout**, and
+  your eligible net after prior paid and pending payouts. A **7-day cooldown**
+  applies between payouts. Profit above a cap is not lost, it stays in the
+  account and remains withdrawable in future windows. Full worked examples on
+  [Funded payouts](/funded/payouts).
 </Accordion>
 
 <Accordion title="How fast are payouts processed?">
