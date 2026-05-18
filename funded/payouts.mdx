@@ -46,7 +46,6 @@ A 7-day cooldown applies between payouts.
 
 ### What counts as eligible profit
 
-- **Losses always count.** Nothing is ever hidden from the calculation.
 - **Gains count** when the position is closed, the entry price was between **0.10 and 0.90**, and it is not a direct same-market YES/NO hedge.
 
 Normal directional trading is fully covered by this. The only things set aside are extreme near-certain or near-impossible bets and self-hedges, which are not the genuine market calls a funded program is built to reward. This protects the value of every honest trader's payouts.
@@ -63,14 +62,20 @@ Normal directional trading is fully covered by this. The only things set aside a
 ## Example
 
 On a \$50,000 funded account, you become eligible once your realized eligible
-profit reaches **\$15,000**.
+profit reaches **\$15,000** (30% of your starting balance).
 
-Because each payout is capped at half of the new eligible profit since your last
-one (and by the ladder), you draw as you keep earning:
+**Your first payout has no "half of new profit" limit.** As soon as you hit the
+\$15,000 eligibility target you can request straight away, up to the week-1
+ladder cap:
 
-- Earn at least **\$2,000** new eligible profit, request the 1st payout: up to **\$1,000** gross (**\$900** to you at 90%).
-- Earn at least **\$4,000** more, after the 7-day cooldown, request the 2nd: up to **\$2,000** gross (**\$1,800** to you).
-- Earn at least **\$10,000** more, request the 3rd and later: up to **\$5,000** gross (**\$4,500** to you).
+- Request the 1st payout: up to **\$1,000** gross (**\$900** to you at 90%).
+
+After your first payout, each later payout is additionally capped at **half of
+the new eligible profit you earn after your previous payout** (and by the
+ladder), with a 7-day cooldown between requests:
+
+- Earn at least **\$4,000** more, then request the 2nd: up to **\$2,000** gross (**\$1,800** to you).
+- Earn at least **\$10,000** more, then request the 3rd and later: up to **\$5,000** gross (**\$4,500** to you).
 
 Steady earning keeps you withdrawing every cycle. Profit above each cap stays in
 the account for future windows.
