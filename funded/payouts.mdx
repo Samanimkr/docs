@@ -1,58 +1,89 @@
 ---
 title: "Requesting a Payout from Your PolyFundr Funded Account"
 sidebarTitle: "Payouts"
-description: "Request a payout once realized profit reaches the threshold. Payouts are sent in USDC on Polygon to the wallet address you enter with each request."
+description: "Request a payout from realized eligible profit. Payouts are sent in USDC on Polygon to the wallet address you enter with each request."
 ---
 
-Use this page as the main source for funded payouts. It explains when you are eligible, how much you can request, and how the wallet payout flow works.
+Use this page as the main source for funded payouts. It explains when you are eligible, how much you can request, and how the wallet payout flow works. The rules are designed to be fair: profit you genuinely earn is always yours, and the structure exists so payouts stay fast and reliable for every funded trader.
 
 ## You can request a payout when
 
-All of these must be true:
+All of these are true:
 
-1. Your **realized profit** after prior paid payouts has reached the threshold (30% of your starting balance).
+1. Your **realized eligible profit**, after prior paid payouts, has reached **30% of your starting balance**.
 2. You have **no other payout request pending** for that funded account.
-3. You provide a valid **EVM wallet address** that can receive USDC on Polygon.
+3. Your **book is flat**: all positions are closed, so the amount is exact and final.
+4. Your profit is **consistent for this payout window**: no single trading day produced more than **40%** of the eligible profit since your last payout.
+5. You provide a valid **EVM wallet address** that can receive USDC on Polygon.
 
 <Note>
-  Minimum trading days do not apply to funded payout requests. Only realized
-  profit, the one-pending-request rule, and the wallet requirement matter here.
+  The 30% is an eligibility gate, not a floor your balance can never cross. It
+  decides *when you may request*. A payout can take your balance below starting
+  balance plus 30%, after which you simply become eligible again once new profit
+  rebuilds it. Consistency here is a gate too, never a breach: it only asks you
+  to spread profit across more than one day, and it never closes your account.
 </Note>
 
-## Current payout rules
+## How much you can request
 
-- **Profit split:** 90% to you, 10% to PolyFundr
-- **Threshold:** 30% of starting balance in realized profit
-- **Progressive payout caps:**
-  - 1st payout request: up to \$1,000 gross
-  - 2nd payout request: up to \$2,000 gross
-  - 3rd payout request and later: up to \$5,000 gross
-- **Payout currency:** USDC on Polygon
-- **Destination:** required on every request and not saved as a default
-- **One pending request at a time:** while a request is pending, you cannot open another payout request for that funded account. The requested gross amount is reserved against further payout availability
-- **Processing time:** usually within 24 hours
+Each payout is the **lowest** of these three:
 
-## Simple example
+| Limit | What it is |
+| :-- | :-- |
+| **Cap ladder** | 1st payout up to \$1,000, 2nd up to \$2,000, 3rd and later up to \$5,000 (gross). The ladder grows with you. |
+| **Half of new profit** | Half of the eligible profit you have earned **since your last payout**. |
+| **Eligible net minus pending** | Your total eligible profit after prior paid and pending payouts. |
 
-On a \$50,000 funded account, the payout threshold is \$15,000 in realized
-profit.
-
-If you continue generating enough realized profit to remain payout-eligible
-across multiple weeks, a payout sequence could look like this:
-
-- **Week 1:** \$1,000 gross
-- **Week 2:** \$2,000 gross
-- **Week 3:** \$5,000 gross
-- **Week 4:** \$5,000 gross
-
-That would be **\$13,000 gross** in total payouts.
-
-At the standard 90% split, that would pay **\$11,700 to you**.
+A 7-day cooldown applies between payouts.
 
 <Info>
-  Larger funded accounts still provide more trading room because the drawdown
-  and risk limits scale with account size. The progressive payout structure is
-  meant to reflect that more fairly than a flat cap.
+  The profit you do not take in a given window is **not lost**. It stays in your
+  account, keeps working, and remains withdrawable in later windows as you keep
+  trading. The "half of new profit" rule simply ties each payout to profit you
+  genuinely earned recently, which is what keeps the program solvent enough to
+  pay everyone quickly.
+</Info>
+
+### What counts as eligible profit
+
+- **Gains count** when the position is closed, the entry price was between **0.10 and 0.90**, and it is not a direct same-market YES/NO hedge.
+
+Normal directional trading is fully covered by this. The only things set aside are extreme near-certain or near-impossible bets and self-hedges, which are not the genuine market calls a funded program is built to reward. This protects the value of every honest trader's payouts.
+
+## Profit split and currency
+
+- **Profit split:** 90% to you, 10% to PolyFundr.
+- **Currency:** USDC on Polygon.
+- **Destination:** required on every request, never saved as a default.
+- **One pending request at a time.** While a request is pending, the requested gross is reserved against your available balance and you cannot open another.
+- **Processing time:** usually within 24 hours of approval.
+- **Requesting a payout never fails your account.** Only the drawdown, inactivity, and risk limits can do that. A blocked or reduced payout just means you request again later.
+
+## Example
+
+On a \$50,000 funded account, you become eligible once your realized eligible
+profit reaches **\$15,000** (30% of your starting balance).
+
+**Your first payout has no "half of new profit" limit.** As soon as you hit the
+\$15,000 eligibility target you can request straight away, up to the week-1
+ladder cap:
+
+- Request the 1st payout: up to **\$1,000** gross (**\$900** to you at 90%).
+
+After your first payout, each later payout is additionally capped at **half of
+the new eligible profit you earn after your previous payout** (and by the
+ladder), with a 7-day cooldown between requests:
+
+- Earn at least **\$4,000** more, then request the 2nd: up to **\$2,000** gross (**\$1,800** to you).
+- Earn at least **\$10,000** more, then request the 3rd and later: up to **\$5,000** gross (**\$4,500** to you).
+
+Steady earning keeps you withdrawing every cycle. Profit above each cap stays in
+the account for future windows.
+
+<Info>
+  Larger funded accounts give more trading room because the drawdown and risk
+  limits scale with size. The progressive ladder reflects that more fairly than
+  a flat cap, and it grows the longer you trade well.
 </Info>
 
 ## Payout lifecycle
@@ -62,20 +93,22 @@ At the standard 90% split, that would pay **\$11,700 to you**.
 ## How to request one
 
 <Steps>
-  <Step title="Close any positions you want included">
-    Payout calculations use realized profit only. Close the positions you want
-    to count before submitting a request.
+  <Step title="Close all open positions">
+    Payouts use realized profit only, and your book must be flat when you
+    request. Close everything you want counted before submitting.
   </Step>
   <Step title="Go to the Payouts page">
-    In the app, navigate to **Payouts** from the main menu.
+    In the app, navigate to **Payouts** from the main menu. It shows your
+    eligible profit, fresh profit this window, the amount available now, and the
+    next cap.
   </Step>
   <Step title="Enter your destination wallet address">
     Provide the wallet address you want the USDC sent to. This address is not
     saved. You must enter it with every request.
   </Step>
   <Step title="Submit the request">
-    Review the payout amount and confirm. Once submitted, the requested amount
-    is reserved against your available balance while the payout is pending.
+    Review the amount and confirm. Once submitted, the requested gross is
+    reserved against your available balance while the payout is pending.
   </Step>
   <Step title="Receive your funds">
     PolyFundr processes the request within 24 hours on average. On approval,
@@ -87,25 +120,16 @@ At the standard 90% split, that would pay **\$11,700 to you**.
 
 Funds are sent as USDC to the wallet address you provide at the time of the request. Enter the full address carefully. The destination is not saved between requests, and transfers cannot be reversed once sent.
 
-## What happens after you submit
-
-When you submit a request, the requested amount is **reserved** against your available balance immediately. This means:
-
-- You cannot submit another payout request for that funded account while one is still pending.
-- Your available payout balance is reduced until the request is approved or rejected.
-- Once the pending request is approved or rejected, you can submit another request if you still meet the threshold and have available balance.
-
 <Warning>
   Always provide the correct destination wallet address. Payout destinations are
   not saved, and on-chain USDC transfers cannot be recalled once sent.
 </Warning>
 
-## How the threshold works after a payout
+## How eligibility works after a payout
 
-The threshold stays tied to your funded account's starting balance. After a payout is sent, prior paid payouts are deducted from the realized-profit calculation. You need to build realized profit back above the threshold before the next request becomes available.
+The 30% gate stays tied to your funded account's starting balance. After a payout is sent, prior paid payouts are deducted from the eligible-profit calculation, so you build new eligible profit back above the gate before the next request unlocks. Each new payout is then sized from the profit earned **since** the previous one.
 
-This means the progressive payout caps do **not** bypass the threshold. You
-still need to remain payout-eligible before each request.
+Drawdown is always calculated net of any payouts already made, so **withdrawing your profit never moves you closer to a breach**. Your earned profit is protected, not penalized.
 
 <Info>
   Need the funded account overview? Read [Funded overview](/funded/overview).

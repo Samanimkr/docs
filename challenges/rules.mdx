@@ -1,7 +1,7 @@
 ---
 title: "Challenge Rules"
 sidebarTitle: "Rules"
-description: "Every rule that governs your challenge account: profit target, minimum trading days, daily drawdown, total drawdown, max risk per trade, and inactivity."
+description: "Every rule that governs your challenge account: profit target, consistency, daily drawdown, total drawdown, max risk per trade, and inactivity."
 ---
 
 Use this page as the source of truth for challenge rules. It covers how you pass, what fails the account, and which risk rules continue after you get funded.
@@ -10,7 +10,8 @@ Use this page as the source of truth for challenge rules. It covers how you pass
 
 <CardGroup cols={2}>
   <Card title="You pass when" icon="badge-check">
-    Equity reaches +30% and you have traded on 7 separate days.
+    Equity reaches +30% and your profit is consistent (no single trading day
+    is more than 30% of your total profit).
   </Card>
   <Card title="You fail when" icon="shield-alert">
     You breach daily drawdown, total drawdown, max risk per trade, or
@@ -26,7 +27,7 @@ Use this page as the source of truth for challenge rules. It covers how you pass
 | What counts toward the target | Equity                                               | Realized profit                              |
 | Target size                   | 30% of starting balance                              | 30% of starting balance                      |
 | Open positions                | Count in equity                                      | Do not count until closed                    |
-| Minimum trading days          | 7 to pass                                            | Not required for payout requests             |
+| Consistency                   | No single day over 30% of total profit               | 40% per payout window, every payout          |
 | Core risk rules               | 10% daily, 20% total, 5% max risk, 14-day inactivity | Same risk rules                              |
 | Payouts                       | Not available                                        | 90% split, progressive payout caps           |
 
@@ -34,16 +35,20 @@ Use this page as the source of truth for challenge rules. It covers how you pass
 
 You pass the challenge the moment both of these are true at the same time.
 
-| Condition                | Requirement                                                                   |
-| :----------------------- | :---------------------------------------------------------------------------- |
-| **Profit target**        | Your account equity reaches **+30%** above your starting balance              |
-| **Minimum trading days** | You have placed at least one qualifying trade on **7 distinct calendar days** |
+| Condition         | Requirement                                                                              |
+| :---------------- | :--------------------------------------------------------------------------------------- |
+| **Profit target** | Your account equity reaches **+30%** above your starting balance                         |
+| **Consistency**   | No single trading day's realized profit is more than **30%** of your total realized profit |
 
-A qualifying trade is any trade with a notional value of **\$1 or more**. Trading days are counted in UTC. Two trades placed on the same UTC calendar day count as one trading day.
+Realized profit is grouped by UTC calendar day. The consistency rule means your
+biggest single day cannot dominate your result, so in practice you need profit
+spread across **at least four profitable trading days**.
 
 <Note>
-  Both conditions must be true at the same time. If you hit the equity target on
-  day 5, you still need to reach day 7 with equity at or above the target.
+  Consistency is a gate, not a breach. It never fails or closes your account.
+  It only delays the pass until your profit is spread out. If one big day is
+  more than 30% of your total, keep trading across more days to bring that
+  share down, then the challenge passes once the +30% target is also met.
 </Note>
 
 ## Your account fails when
@@ -109,7 +114,10 @@ After you pass, your funded account keeps these risk rules:
 
 Funded payout eligibility is explained on [Funded payouts](/funded/payouts).
 
-Minimum trading days do not carry over to funded payout requests.
+A consistency rule also applies to **every funded payout window** (no single
+trading day over 40% of the eligible profit in that window). It uses the same
+"no single lucky day" idea as the challenge, with more room. A trader who earns
+steadily across a few days clears it without having to think about it.
 
 ## What is allowed
 
